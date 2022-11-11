@@ -1,12 +1,19 @@
-export interface Note {
+export interface NoteCardPosition {
+  top: number;
+  left: number;
+  transform: string;
+}
+
+export interface NotePayload {
   id: string;
   noteContent: string;
   timestamp: Date;
+  position: NoteCardPosition;
 }
 
 export interface NotesState {
   noteCount: number;
-  notes: Note[];
+  notes: NotePayload[];
 }
 
 export const INIT_NOTES_STATE: NotesState = {
@@ -19,20 +26,26 @@ export enum NotesActionTypes {
   REMOVE = 'remove',
 }
 
-export interface NotesAction {
+export interface NoteAction {
   type: NotesActionTypes;
-  payload: Note;
+  payload: NotePayload;
 }
 
-export const NotesReducer = (notesState: NotesState, action: NotesAction): NotesState => {
+export const NotesReducer = (notesState: NotesState, action: NoteAction): NotesState => {
   switch (action.type) {
     case NotesActionTypes.ADD:
-      console.log('Note added');
-      return { ...notesState, notes: [...notesState.notes, action.payload], noteCount: notesState.noteCount++ };
+      return {
+        ...notesState,
+        notes: [...notesState.notes, action.payload],
+        noteCount: notesState.noteCount++,
+      };
 
     case NotesActionTypes.REMOVE:
-      console.log('Note removed');
-      return notesState;
+      return {
+        ...notesState,
+        notes: notesState.notes.filter(note => note.id !== action.payload.id),
+        noteCount: notesState.noteCount--,
+      };
 
     default:
       console.log('Returning default state');

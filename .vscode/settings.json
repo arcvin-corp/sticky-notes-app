@@ -8,6 +8,6 @@
     "*.react.js": "javascriptreact",
     "*.jsx": "javascriptreact",
     "*.js": "javascriptreact",
-    "*.tsx": "javascriptreact"
+    "*.tsx": "typescriptreact"
   }
 }

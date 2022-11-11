@@ -1,0 +1,42 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 9rem;
+  height: 9rem;
+  margin: 1.5rem;
+  outline: none;
+}
+
+textarea {
+  line-height: 26px;
+  padding: 0.5rem;
+  outline: none;
+  border: none;
+  height: 100%;
+  font-size: 14px;
+  resize: none;
+  background: #ffde00;
+}
+
+button {
+  background-color: #a881af;
+  border: none;
+  color: black;
+  text-align: center;
+  opacity: 1;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 2px 2px;
+}
+
+button:hover:enabled {
+  background-color: #80669d;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 40%;
+}

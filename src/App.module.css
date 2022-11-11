@@ -1,4 +1,3 @@
 .app {
-  background-image: url('./assets/corkboard-bg.jpg');
-  height: 100vh;
+  display: flex;
 }

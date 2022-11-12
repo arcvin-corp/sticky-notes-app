@@ -15,17 +15,8 @@ interface NoteProps {
 const NoteCard = ({ id, noteContent, timestamp, position, noteDeleteHandler }: NoteProps) => {
   const contentLines = noteContent.split('\n').filter(lineText => lineText);
   const itemsCount = contentLines.length;
-
-  const notePositionStyle = {
-    ...position,
-    top: `${position.top}vh`,
-    left: `${position.left}vh`,
-  };
-
-  console.log(notePositionStyle);
-
   return (
-    <div className={styles['note-card']} style={notePositionStyle}>
+    <div draggable={true} className={styles['note-card']} style={position}>
       <div className={styles.header}>
         <h3>{`(${itemsCount} ${contentLines.length === 1 ? 'item' : 'items'})`}</h3>
         <img id={styles['thumb-tack']} src={thumbTack} alt="Thumb-Tack image" />

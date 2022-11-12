@@ -1,6 +1,6 @@
 export interface NoteCardPosition {
   top: number;
-  left: number;
+  right: number;
   transform: string;
 }
 

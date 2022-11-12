@@ -23,7 +23,7 @@ const NoteCard = ({ id, noteContent, timestamp, position, noteDeleteHandler }: N
   return (
     <div className={styles['note-card']} style={position}>
       <div className={styles.header}>
-        <p>{`(${itemsCount} ${contentLines.length === 1 ? 'item' : 'items'})`}</p>
+        <h3>{`(${itemsCount} ${contentLines.length === 1 ? 'item' : 'items'})`}</h3>
         <img id={styles['thumb-tack']} src={thumbTack} alt="Thumb-Tack image" />
         <img
           onClick={() => {

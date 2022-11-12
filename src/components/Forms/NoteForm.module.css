@@ -1,19 +1,19 @@
 .form {
   display: flex;
   flex-direction: column;
-  width: 9rem;
-  height: 9rem;
+  width: 15rem;
+  height: 18rem;
   margin: 1.5rem;
   outline: none;
 }
 
 textarea {
-  line-height: 26px;
+  line-height: 30px;
   padding: 0.5rem;
   outline: none;
   border: none;
   height: 100%;
-  font-size: 14px;
+  font-size: 22px;
   resize: none;
   background: #ffde00;
 }
@@ -30,6 +30,7 @@ button {
   cursor: pointer;
   font-weight: 600;
   padding: 2px 2px;
+  font-size: 24px;
 }
 
 button:hover:enabled {
@@ -38,5 +39,5 @@ button:hover:enabled {
 
 button:disabled {
   cursor: not-allowed;
-  opacity: 40%;
+  opacity: 60%;
 }

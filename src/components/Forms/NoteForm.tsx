@@ -26,20 +26,18 @@ const NoteForm = ({ noteCreateHandler }: NoteFormProps) => {
   };
 
   return (
-    <div>
-      <form className={styles.form}>
-        <textarea
-          onChange={e => {
-            setNoteInput(e.target.value);
-          }}
-          value={noteInput}
-          placeholder="Add your note..."
-        ></textarea>
-        <button onClick={createHandler} disabled={!isFormValid}>
-          Create Note
-        </button>
-      </form>
-    </div>
+    <form className={styles.form}>
+      <textarea
+        onChange={e => {
+          setNoteInput(e.target.value);
+        }}
+        value={noteInput}
+        placeholder="Add your note..."
+      ></textarea>
+      <button onClick={createHandler} disabled={!isFormValid}>
+        Create Note
+      </button>
+    </form>
   );
 };
 

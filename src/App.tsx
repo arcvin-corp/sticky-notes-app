@@ -12,8 +12,8 @@ function App() {
 
   const onNoteCreateHandler = (noteInput: string) => {
     const position: NoteCardPosition = {
-      top: getRandom(20, 380),
-      left: getRandom(20, 800),
+      top: getRandom(5, 60),
+      left: getRandom(60, 230),
       transform: `rotate(${getRandom(-15, 15)}deg)`,
     };
 

@@ -47,7 +47,7 @@ ul {
   font-size: 22px;
   line-height: 30px;
   padding: 1.5rem;
-  height: auto;
+  /* height: auto; */
   margin: 0;
   overflow-y: scroll;
 }

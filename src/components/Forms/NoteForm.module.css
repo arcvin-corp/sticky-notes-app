@@ -1,9 +1,8 @@
 .form {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   width: 15rem;
   height: 18rem;
-  margin: 1.5rem;
   outline: none;
 }
 

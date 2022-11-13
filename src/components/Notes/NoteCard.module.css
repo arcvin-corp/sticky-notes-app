@@ -7,6 +7,24 @@
   position: absolute;
   display: flex;
   flex-direction: column;
+  box-shadow: 6px 5px 9px 0px;
+}
+
+.grabbable {
+  cursor: grab;
+}
+
+.grabbable:active {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}
+
+.note-card h4 {
+  color: #379237;
+  margin: 0;
+  text-align: center;
+  text-decoration: underline;
 }
 
 .header {
@@ -46,13 +64,13 @@
 ul {
   font-size: 22px;
   line-height: 30px;
-  padding: 1.5rem;
+  padding: 0.75rem 2rem;
   /* height: auto; */
   margin: 0;
   overflow-y: scroll;
 }
 
 li {
-  list-style: number;
+  list-style: disc;
   align-self: flex-start;
 }

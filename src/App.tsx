@@ -8,28 +8,26 @@ import NoteCard from './components/Notes/Note';
 const getRandom = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1) + min);
 
 function App() {
-  const ref: any = useRef(null);
+  const appRef: React.RefObject<HTMLDivElement> = useRef(null);
   const [notesState, dispatch] = useReducer(NotesReducer, INIT_NOTES_STATE);
   const [height, setHeight] = useState(0);
   const [width, setWidth] = useState(0);
 
   useEffect(() => {
-    setHeight(ref.current.offsetHeight);
-    setWidth(ref.current.offsetWidth);
-
-    // 👇️ if you need access to parent
-    // of the element on which you set the ref
-    console.log(ref.current.parentElement);
-    console.log(ref.current.parentElement.offsetHeight);
-    console.log(ref.current.parentElement.offsetWidth);
-  }, []);
+    if (appRef.current !== null) {
+      setHeight(appRef.current?.offsetHeight);
+      setWidth(appRef.current?.offsetWidth);
+    }
+  }, [notesState.noteCount]);
 
   const onNoteCreateHandler = (noteInput: string) => {
     const position: NoteCardPosition = {
-      top: getRandom(50, 55),
-      right: getRandom(50, 55),
+      top: getRandom(5, 70),
+      right: getRandom(5, 85),
       transform: `rotate(${getRandom(-10, 10)}deg)`,
     };
+
+    console.log(`Resolution: W ${width} x H ${height} | position: ${JSON.stringify(position)}`);
 
     dispatch({
       type: NotesActionTypes.ADD,
@@ -45,7 +43,7 @@ function App() {
   };
 
   return (
-    <div className={styles.app} ref={ref}>
+    <div className={styles.app} ref={appRef}>
       <NoteForm noteCreateHandler={onNoteCreateHandler} />
       {notesState.notes.map(note => {
         return (

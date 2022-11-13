@@ -4,6 +4,7 @@
   width: 15rem;
   height: 18rem;
   outline: none;
+  box-shadow: 6px 5px 9px 0px;
 }
 
 textarea {

@@ -33,6 +33,7 @@ const NoteForm = ({ noteCreateHandler }: NoteFormProps) => {
         }}
         value={noteInput}
         placeholder="Add your note..."
+        autoFocus={true}
       ></textarea>
       <button onClick={createHandler} disabled={!isFormValid}>
         Create Note

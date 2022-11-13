@@ -10,9 +10,10 @@ interface NoteProps {
   timestamp: Date;
   position: NoteCardPosition;
   noteDeleteHandler: (note: NotePayload) => void;
+  dragEndHandler: (id: string, noteContent: string, timestamp: Date, x: number, y: number, transform: string) => void;
 }
 
-const NoteCard = ({ id, noteContent, timestamp, position, noteDeleteHandler }: NoteProps) => {
+export const NoteCard = ({ id, noteContent, timestamp, position, noteDeleteHandler, dragEndHandler }: NoteProps) => {
   const contentLines = noteContent.split('\n').filter(lineText => lineText);
   const itemsCount = contentLines.length;
 
@@ -22,14 +23,20 @@ const NoteCard = ({ id, noteContent, timestamp, position, noteDeleteHandler }: N
     right: `${position.right}%`,
   };
 
-  const onDrageEndHandler = event => {
-    console.log(event);
+  const onDrageEndHandler = (event: React.DragEvent<HTMLDivElement>) => {
+    const newPos = {
+      x: event.pageX,
+      y: event.pageY,
+    };
   };
 
   return (
     <div
       draggable={true}
-      onDragEnd={onDrageEndHandler}
+      onDragEnd={(event: React.DragEvent<HTMLDivElement>) => {
+        const transform = event.currentTarget.style.getPropertyValue('transform');
+        dragEndHandler(id, noteContent, timestamp, event.pageX, event.pageY, transform);
+      }}
       className={`${styles['note-card']} ${styles.grabbable}`}
       style={notePositionAndRotation}
     >

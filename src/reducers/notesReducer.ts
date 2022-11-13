@@ -24,6 +24,7 @@ export const INIT_NOTES_STATE: NotesState = {
 export enum NotesActionTypes {
   ADD = 'add',
   REMOVE = 'remove',
+  MOVE = 'move',
 }
 
 export interface NoteAction {
@@ -47,6 +48,17 @@ export const NotesReducer = (notesState: NotesState, action: NoteAction): NotesS
         noteCount: notesState.noteCount--,
       };
 
+    case NotesActionTypes.MOVE:
+      return {
+        ...notesState,
+        notes: notesState.notes.map(note => {
+          if (note.id === action.payload.id) {
+            note.position = action.payload.position;
+            return note;
+          }
+          return note;
+        }),
+      };
     default:
       console.log('Returning default state');
       return notesState;

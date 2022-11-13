@@ -24,8 +24,6 @@ function App() {
     const position: NoteCardPosition = {
       top: getRandom(5, 70),
       right: getRandom(5, 85),
-      // top: getRandom(0, 100),
-      // right: getRandom(0, 100),
       transform: `rotate(${getRandom(-10, 10)}deg)`,
     };
     dispatch({
@@ -43,8 +41,8 @@ function App() {
 
   const onDragEndHandler = (id: string, noteContent: string, timestamp: Date, x: number, y: number, transform: string) => {
     if (appRef.current !== null) {
-      const top = (y / appRef.current.offsetHeight) * 100;
-      const right = 100 - (x / appRef.current.offsetWidth) * 100;
+      const top = (y / appRef.current.offsetHeight) * 100 - 15; // Eyeball adjustment values, don't rely on them;
+      const right = 100 - (x / appRef.current.offsetWidth) * 100 - 5; // Eyeball adjustment values, don't rely on them;
       const position: NoteCardPosition = {
         top: top >= 0 ? top : 0,
         right: right >= 0 ? right : 0,
